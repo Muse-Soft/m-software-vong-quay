@@ -84,7 +84,8 @@
   .step h3{font-size:20px;margin-bottom:8px}
   .step p{font-size:15px;color:var(--muted);margin:0}
   /* Xưởng + thợ */
-  .story-pics{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+  .story-pics{position:relative;padding-bottom:16%}
+  .story-pics .ratio-11{position:absolute;right:0;bottom:0;width:42%;border:4px solid var(--card);box-shadow:0 8px 24px rgba(32,36,43,.18)}
   blockquote{font-family:"Fraunces",serif;font-size:22px;line-height:1.5;margin:28px 0 0;padding-left:20px;border-left:3px solid var(--accent)}
   blockquote footer{font-family:"IBM Plex Sans",sans-serif;font-size:14px;color:var(--muted);margin-top:12px}
   /* Bảng giá */
@@ -117,6 +118,8 @@
     .split,.model{grid-template-columns:1fr}
     .split .txt,.model .txt{order:1}
     .split .pic,.model .pic{order:2}
+    #bo-suu-tap .model .pic{order:1}
+    #bo-suu-tap .model .txt{order:2}
     .hero{min-height:0;flex-direction:column;align-items:stretch}
     .hero img{position:relative;height:auto;aspect-ratio:4/5}
     .hero::after{display:none}
@@ -256,19 +259,19 @@
 
   <section class="block alt" id="xuong">
     <div class="wrap split">
-      <div class="txt">
-        <div class="wheel"><span class="wheel-mark"><span class="wheel-dot"></span></span><div><p class="eyebrow">Xưởng</p><h2>Một xưởng nhỏ, làm bằng tay.</h2></div></div>
-        <p>Vòng Quay bắt đầu từ một góc xưởng nhỏ với một bộ đồ hàn và niềm tin rằng xe đạp nên được làm cho vừa người, không phải sản xuất hàng loạt. Tới nay xưởng vẫn giữ nhịp làm chậm: mỗi tháng chỉ nhận số xe vừa sức, mỗi chiếc đều qua tay người thợ từ lúc đo tới lúc giao.</p>
-        <blockquote>“Một chiếc xe tốt là chiếc xe bạn quên mất nó đang ở dưới mình — chỉ còn đường và gió.”
-          <footer>— Người thợ chính của xưởng</footer>
-        </blockquote>
-      </div>
       <div class="pic">
         <div class="story-pics">
           <img class="ratio-43" src="https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80" alt="Hàn khung xe trong xưởng (ảnh minh họa mẫu)" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1200&q=80'">
           <img class="ratio-11" src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=800&q=80" alt="Chân dung người thợ (ảnh minh họa mẫu)" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80'">
         </div>
         <p class="caption">Ảnh minh họa mẫu.</p>
+      </div>
+      <div class="txt">
+        <div class="wheel"><span class="wheel-mark"><span class="wheel-dot"></span></span><div><p class="eyebrow">Xưởng</p><h2>Xưởng nhỏ, tay nghề lớn.</h2></div></div>
+        <p>Vòng Quay bắt đầu từ một góc xưởng nhỏ với một bộ đồ hàn và niềm tin rằng xe đạp nên được làm cho vừa người, không phải sản xuất hàng loạt. Tới nay xưởng vẫn giữ nhịp làm chậm: mỗi tháng chỉ nhận số xe vừa sức, mỗi chiếc đều qua tay người thợ từ lúc đo tới lúc giao.</p>
+        <blockquote>“Một chiếc xe tốt là chiếc xe bạn quên mất nó đang ở dưới mình — chỉ còn đường và gió.”
+          <footer>— Người thợ chính của xưởng</footer>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -279,19 +282,22 @@
       <p style="color:var(--muted);max-width:640px">Mọi mức giá dưới đây đều là giá mẫu — giá cuối cùng tùy số đo, cấu hình và màu sơn bạn chọn.</p>
       <div class="pricing">
         <div class="plan">
-          <h3>Xe phố</h3>
-          <p class="price">18.000.000đ <small>(giá mẫu)</small></p>
-          <ul><li>Khung thép Cr-Mo hàn tay</li><li>Đo người đạp và căn chỉnh cơ bản</li><li>Giỏ xe và chắn bùn</li><li>Bảo dưỡng miễn phí 6 tháng đầu (mẫu)</li></ul>
+          <h3>Khung xe</h3>
+          <p class="price">9.500.000đ <small>(giá mẫu)</small></p>
+          <ul><li>Khung thép Cr-Mo hàn tay theo số đo</li><li>Càng trước và cọc yên (mẫu)</li><li>Tư vấn hình học khung và cỡ bánh</li><li>Sơn một màu tùy chọn (mẫu)</li><li>Bảo dưỡng khung miễn phí 12 tháng đầu (mẫu)</li></ul>
+          <p style="margin-top:20px"><button class="btn" type="button" data-plan="Khung xe" data-bike="Chỉ khung xe">Đặt xe mức này</button></p>
         </div>
         <div class="plan">
-          <h3>Xe đường trường</h3>
-          <p class="price">32.000.000đ <small>(giá mẫu)</small></p>
-          <ul><li>Khung thép Cr-Mo ống mỏng</li><li>Đo người đạp và fitting chi tiết</li><li>Bộ chuyển động tầm trung (mẫu)</li><li>Bảo dưỡng miễn phí 12 tháng đầu (mẫu)</li></ul>
+          <h3>Xe hoàn chỉnh cơ bản</h3>
+          <p class="price">24.000.000đ <small>(giá mẫu)</small></p>
+          <ul><li>Khung thép Cr-Mo hàn tay theo số đo</li><li>Bộ chuyển động và phanh cơ bản (mẫu)</li><li>Bánh xe và lốp hoàn chỉnh (mẫu)</li><li>Đo người đạp và fitting cơ bản</li><li>Bảo dưỡng miễn phí 6 tháng đầu (mẫu)</li></ul>
+          <p style="margin-top:20px"><button class="btn" type="button" data-plan="Xe hoàn chỉnh cơ bản">Đặt xe mức này</button></p>
         </div>
         <div class="plan">
-          <h3>Xe touring</h3>
-          <p class="price">38.000.000đ <small>(giá mẫu)</small></p>
-          <ul><li>Khung thép Cr-Mo chịu tải</li><li>Đo người đạp và fitting chi tiết</li><li>Giá đỡ túi trước và sau</li><li>Bảo dưỡng miễn phí 12 tháng đầu (mẫu)</li></ul>
+          <h3>Xe hoàn chỉnh cao cấp</h3>
+          <p class="price">42.000.000đ <small>(giá mẫu)</small></p>
+          <ul><li>Khung thép Cr-Mo ống mỏng hàn tay</li><li>Bộ chuyển động và phanh cao cấp (mẫu)</li><li>Bánh xe nhẹ, lốp cao cấp (mẫu)</li><li>Đo người đạp và fitting chi tiết</li><li>Bảo dưỡng miễn phí 12 tháng đầu (mẫu)</li></ul>
+          <p style="margin-top:20px"><button class="btn" type="button" data-plan="Xe hoàn chỉnh cao cấp">Đặt xe mức này</button></p>
         </div>
       </div>
     </div>
@@ -310,11 +316,12 @@
             <div class="field"><label for="name">Họ tên</label><input id="name" name="name" type="text" placeholder="Tên của bạn" required></div>
             <div class="field"><label for="phone">Số điện thoại</label><input id="phone" name="phone" type="tel" placeholder="Số điện thoại liên hệ" required></div>
             <div class="field"><label for="bike">Dòng xe quan tâm</label>
-              <select id="bike" name="bike"><option>Xe phố</option><option>Xe đường trường</option><option>Xe touring</option><option>Chưa chắc — cần tư vấn</option></select>
+              <select id="bike" name="bike"><option>Xe phố</option><option>Xe đường trường</option><option>Xe touring</option><option>Chỉ khung xe</option></select>
             </div>
             <div class="field"><label for="need">Nhu cầu</label>
               <select id="need" name="need"><option>Tư vấn và đo thử</option><option>Đặt xe mới</option></select>
             </div>
+            <div class="field"><label for="date">Ngày mong muốn</label><input id="date" name="date" type="date"></div>
             <div class="field full"><label for="note">Ghi chú</label><textarea id="note" name="note" rows="3" placeholder="Chiều cao, cách bạn hay đạp xe, ngân sách dự kiến…"></textarea></div>
           </div>
           <p style="margin:20px 0"><button class="btn" type="submit">Gửi yêu cầu</button></p>
@@ -322,6 +329,16 @@
           <div class="demo-msg" id="demo-msg">Đây là bản demo giao diện — yêu cầu chưa được gửi đi.</div>
         </form>
         <script>
+          document.querySelectorAll('[data-plan]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var bike = document.getElementById('bike');
+              var need = document.getElementById('need');
+              if (btn.dataset.bike) { bike.value = btn.dataset.bike; }
+              need.value = 'Đặt xe mới';
+              document.getElementById('dat-lich').scrollIntoView({ behavior: 'smooth' });
+              document.getElementById('name').focus();
+            });
+          });
           document.getElementById('booking-form').addEventListener('submit', function (e) {
             e.preventDefault();
             document.getElementById('demo-msg').style.display = 'block';
